@@ -3,6 +3,7 @@ const routes = express.Router();
 const User = require('../models/user');
 const Ad = require('../models/ad');
 const Chat = require('../models/chat');
+const MessageSchema = require('../models/message');
 
 
 // For Handeling user related requests
@@ -10,7 +11,7 @@ routes.get('/user/:id',function(req,res,next){
     User.findOne({_id: req.params.id}).then(function(user){
         res.send(user);
     }).catch(next);
-})
+});
 
 //This wont be used in pratical implementation
 routes.get('/user',function(req,res,next){
@@ -36,6 +37,43 @@ routes.put('/user/:id',function(req,res,next){
 routes.delete('/user/:id',function(req,res,next){
     User.findByIdAndDelete({_id: req.params.id}, req.body).then(function(user){
         res.send(user);
+    }).catch(next);
+});
+
+// For adding a new ad id to some user's ad_id field
+routes.post('/user/add_ad_id/:id',function(req,res,next){
+    User.findOne({_id: req.params.id}).then(function(user){
+        user.ad_id.push(req.body.ad_id);
+        user.save();
+        res.send({ad_id: req.body.ad_id});
+    }).catch(next);
+});
+
+// For adding a new chat id to some user's chat_id field
+routes.post('/user/add_chat_id/:id',function(req,res,next){
+    User.findOne({_id: req.params.id}).then(function(user){
+        user.ad_id.push(req.body.chat_id);
+        user.save();
+        res.send({ad_id: req.body.chat_id});
+    }).catch(next);
+});
+
+
+// For deleting an ad id form some user's ad_id field
+routes.post('/user/delete_ad_id/:id',function(req,res,next){
+    User.findOne({_id: req.params.id}).then(function(user){
+        user.ad_id.pull(req.body.ad_id)
+        user.save();
+        res.send({ad_id: req.body.ad_id});
+    }).catch(next);
+});
+
+// For deleting an chat id form some user's chat_id field
+routes.post('/user/delete_chat_id/:id',function(req,res,next){
+    User.findOne({_id: req.params.id}).then(function(user){
+        user.chat_id.pull(req.body.chat_id)
+        user.save();
+        res.send({ad_id: req.body.chat_id});
     }).catch(next);
 });
 
@@ -108,6 +146,17 @@ routes.put('/chat/:id',function(req,res,next){
 routes.delete('/chat/:id',function(req,res,next){
     Chat.findByIdAndDelete({_id: req.params.id}, req.body).then(function(chat){
         res.send(chat);
+    }).catch(next);
+});
+
+// For adding a new message to some chat's messages field
+routes.post('/chat/add_message/:id',function(req,res,next){
+    Chat.findOne({_id: req.params.id}).then(function(chat){
+
+        var message = {"user_id":req.body.user_id, "message":req.body.message};
+        chat.messages.push(message);
+        chat.save();
+        res.send(message);
     }).catch(next);
 });
 
