@@ -12,7 +12,7 @@ Collections
 
 #Accessing User Collection
 
-Request Type: POST ....................//Add A User In DataBase
+Request Type: POST ....................//Add A user in User Collection
 
 Url: localhost:4000/api/user/
 
@@ -25,59 +25,17 @@ Body Format:
 	    "ad_id":[],      
 	    "chat_id":[]
       }
-      
-      
-Request Type: POST ....................//Add an Ad id in a user's document
 
-Url: localhost:4000/api/user/add_ad_id/:id
-
-Body Format:
-
-      {
-	    "ad_id": "abcdefg"
-      }
-      
-Request Type: POST ....................//Delete an Ad id from a user's document
-
-Url: localhost:4000/api/user/add_ad_id/:id
-
-Body Format:
-
-      {
-	    "ad_id": "abcdefg"
-      }
-      
-Request Type: POST ....................//Add an Chat id in a user's document
-
-Url: localhost:4000/api/user/add_chat_id/:id
-
-Body Format:
-
-      {
-	    "chat_id": "abcdefg"
-      }
-      
-Request Type: POST ....................//Delete an Chat id from a user's document
-
-Url: localhost:4000/api/user/delete_chat_id/:id
-
-Body Format:
-
-      {
-	    "chat_id": "abcdefg"
-      }
-
-
-
-Request Type: GET ...................//Get all available users from Database
+Request Type: GET ...................//Get all available users from User Collection
 
 Url: localhost:4000/api/user/
 
-Request Type: GET ...................//Get some particular user form Database
+
+Request Type: GET ...................//Get some particular user form User Collection
 
 Url: localhost:4000/api/user/:id
 
-Request Type: PUT ...................//Update some particular user in Database
+Request Type: PUT ...................//Update some particular user in User Collection
 
 Url: localhost:4000/api/user/:id
 
@@ -87,11 +45,11 @@ Body Format:
            //Fields to be modified
           }
           
-Request Type: DELETE ...................//Delete some particular user from Database
+Request Type: DELETE ...................//Delete some particular user from User Collection
 
 Url: localhost:4000/api/user/:id
 
-	*****************************************************************************************************************
+	*******************************************************************************************************
 	
 #Accessing Ad Collection
 
@@ -139,7 +97,7 @@ Url: localhost:4000/api/ad/:id
 	
 #Accessing Chat Collection
 
-Request Type: POST ....................//Add Chat in chat Collection 
+Request Type: POST ....................//Add chat in Chat Collection 
 
 Url: localhost:4000/api/chat/
 
@@ -167,17 +125,17 @@ Body Format:
 
 
 
-Request Type: GET ....................//Get all availavbe chats in chat Collection 
+Request Type: GET ....................//Get all availavbe chats in Chat Collection 
 
 Url: localhost:4000/api/chat/
 
 
-Request Type: GET ....................//Get some particular chat from chat Collection 
+Request Type: GET ....................//Get some particular chat from Chat Collection 
 
 Url: localhost:4000/api/chat/:id
 
 
-Request Type: PUT ....................//Update some particular chat in chat Collection 
+Request Type: PUT ....................//Update some particular chat in Chat Collection 
 
 Url: localhost:4000/api/chat/:id
 
