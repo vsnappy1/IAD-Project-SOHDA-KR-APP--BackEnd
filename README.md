@@ -25,6 +25,49 @@ Body Format:
 	    "ad_id":[],      
 	    "chat_id":[]
       }
+      
+      
+Request Type: POST ....................//Add an Ad id in a user's document
+
+Url: localhost:4000/api/user/add_ad_id/:id
+
+Body Format:
+
+      {
+	    "ad_id": "abcdefg"
+      }
+      
+Request Type: POST ....................//Delete an Ad id from a user's document
+
+Url: localhost:4000/api/user/add_ad_id/:id
+
+Body Format:
+
+      {
+	    "ad_id": "abcdefg"
+      }
+      
+Request Type: POST ....................//Add an Chat id in a user's document
+
+Url: localhost:4000/api/user/add_chat_id/:id
+
+Body Format:
+
+      {
+	    "chat_id": "abcdefg"
+      }
+      
+Request Type: POST ....................//Delete an Chat id from a user's document
+
+Url: localhost:4000/api/user/delete_chat_id/:id
+
+Body Format:
+
+      {
+	    "chat_id": "abcdefg"
+      }
+
+
 
 Request Type: GET ...................//Get all available users from Database
 
@@ -47,6 +90,8 @@ Body Format:
 Request Type: DELETE ...................//Delete some particular user from Database
 
 Url: localhost:4000/api/user/:id
+
+	*****************************************************************************************************************
 
 
       
