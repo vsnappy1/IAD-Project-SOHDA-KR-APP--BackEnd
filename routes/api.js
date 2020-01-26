@@ -52,9 +52,9 @@ routes.post('/user/add_ad_id/:id',function(req,res,next){
 // For adding a new chat id to some user's chat_id field
 routes.post('/user/add_chat_id/:id',function(req,res,next){
     User.findOne({_id: req.params.id}).then(function(user){
-        user.ad_id.push(req.body.chat_id);
+        user.chat_id.push(req.body.chat_id);
         user.save();
-        res.send({ad_id: req.body.chat_id});
+        res.send({chat_id: req.body.chat_id});
     }).catch(next);
 });
 
@@ -73,7 +73,7 @@ routes.post('/user/delete_chat_id/:id',function(req,res,next){
     User.findOne({_id: req.params.id}).then(function(user){
         user.chat_id.pull(req.body.chat_id)
         user.save();
-        res.send({ad_id: req.body.chat_id});
+        res.send({chat_id: req.body.chat_id});
     }).catch(next);
 });
 
